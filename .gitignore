@@ -1,0 +1,49 @@
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.*
+!.env.example
+
+# Backend environment
+backend/.env
+backend/.env.local
+backend/.env.production
+!backend/.env.example
+
+# Database backups
+*.sql.backup
+*.db
+
+# OS files
+Thumbs.db
+
+# Build files
+build/
+*.zip
+
+# Local editor/tool state and archived duplicate source
+.bolt/
+backup-rice-version/
+
+# Supabase (not used in this project)
+supabase/

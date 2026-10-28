@@ -1,0 +1,121 @@
+### تست سلامت سرور
+GET http://localhost:5000/api/health
+
+###
+
+### ثبت نام کاربر جدید
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@nowatic.af",
+  "password": "password123",
+  "full_name": "کاربر تست",
+  "phone": "0799123456",
+  "role": "staff"
+}
+
+###
+
+### ورود به سیستم
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@nowatic.af",
+  "password": "password123"
+}
+
+###
+
+### دریافت اطلاعات کاربر فعلی
+GET http://localhost:5000/api/auth/me
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### دریافت لیست محصولات
+GET http://localhost:5000/api/products
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### دریافت محصولات با موجودی کم
+GET http://localhost:5000/api/products/low-stock
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### ایجاد محصول جدید
+POST http://localhost:5000/api/products
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "sku": "TEST-001",
+  "name": "محصول تستی",
+  "category": "برنج ایرانی",
+  "origin": "کابل",
+  "purchase_price": 500000,
+  "sale_price": 600000,
+  "stock_quantity": 10,
+  "min_stock_quantity": 5,
+  "unit": "تن"
+}
+
+###
+
+### دریافت لیست مشتریان
+GET http://localhost:5000/api/customers
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### ایجاد مشتری جدید
+POST http://localhost:5000/api/customers
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "name": "مشتری تستی",
+  "contact_person": "احمد رضایی",
+  "phone": "0799123456",
+  "email": "test@example.com",
+  "address": "کابل، ناحیه 10"
+}
+
+###
+
+### دریافت لیست فروش
+GET http://localhost:5000/api/sales
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### دریافت آمار فروش
+GET http://localhost:5000/api/sales/stats
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### ایجاد سفارش فروش جدید
+POST http://localhost:5000/api/sales
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "customer_id": "CUSTOMER_ID_HERE",
+  "order_date": "2024-01-15",
+  "delivery_date": "2024-01-20",
+  "payment_type": "نقدی",
+  "items": [
+    {
+      "product_id": "PRODUCT_ID_HERE",
+      "quantity": 5,
+      "unit_price": 1000000
+    }
+  ],
+  "notes": "سفارش تستی"
+}
+
+###

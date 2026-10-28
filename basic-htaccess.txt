@@ -1,0 +1,16 @@
+# Simple .htaccess for static files
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /pplus-software/
+    
+    # Handle missing files
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.html [L]
+</IfModule>
+
+# MIME types
+AddType application/javascript .js
+AddType text/css .css

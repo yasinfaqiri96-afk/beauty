@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>تست سیستم</title>
+</head>
+<body>
+    <h1>تست اتصال</h1>
+    <p>اگر این متن را میبینید، هاست کار میکند.</p>
+    
+    <script>
+        console.log('JavaScript کار میکند');
+        
+        // تست لود فایلهای assets
+        fetch('./assets/index-CZNw32R1.css')
+            .then(response => {
+                if (response.ok) {
+                    document.body.innerHTML += '<p style="color:green">✅ فایل CSS لود شد</p>';
+                } else {
+                    document.body.innerHTML += '<p style="color:red">❌ فایل CSS لود نشد - کد: ' + response.status + '</p>';
+                }
+            })
+            .catch(error => {
+                document.body.innerHTML += '<p style="color:red">❌ خطا در لود CSS: ' + error + '</p>';
+            });
+            
+        fetch('./assets/index-5gs-dirG.js')
+            .then(response => {
+                if (response.ok) {
+                    document.body.innerHTML += '<p style="color:green">✅ فایل JS لود شد</p>';
+                } else {
+                    document.body.innerHTML += '<p style="color:red">❌ فایل JS لود نشد - کد: ' + response.status + '</p>';
+                }
+            })
+            .catch(error => {
+                document.body.innerHTML += '<p style="color:red">❌ خطا در لود JS: ' + error + '</p>';
+            });
+    </script>
+</body>
+</html>
